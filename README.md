@@ -12,6 +12,7 @@ Custom subagents invoked via the `Task` tool. Install to `~/.factory/droids/`.
 | **scrutiny-feature-reviewer** | Deep code review for a single feature during mission validation |
 | **user-testing-flow-validator** | Tests validation contract assertions through real user surfaces (web UI, CLI, API) |
 | **local-seo-optimization-specialist** | Enterprise-ready Local SEO consultant. Audits websites for local search visibility, Google Business Profile optimization, NAP consistency, schema markup, and competitor analysis. Powered by DataForSEO MCP for real keyword data. |
+| **umbraco-cms-migration-droid** | Migrates any hardcoded frontend (React, Next.js, Vue, Nuxt, Angular, Svelte, Astro, .NET MVC, vanilla, etc.) to Umbraco CMS. Enforces one-doctype-per-page architecture, Delivery API wiring, SEO, revalidation, preview mode, media handling, Graphify relationship intelligence, and 16-skill lifecycle with verification gates. |
 
 ## Skills
 
@@ -20,6 +21,7 @@ Custom skills invoked via the `Skill` tool. Install to `~/.factory/skills/<name>
 | Skill | Purpose |
 |---|---|
 | **vercel-watch** | Monitor a Vercel deployment from trigger until success or failure |
+| **umbraco-cms-migration** | 16 sub-skills for full Umbraco CMS migration lifecycle: frontend audit, schema generation, spec review, Management API creation, Delivery API wiring, content seeding, SEO wiring, revalidation, media handling, preview mode, wiring verification, retrospections, route certification, drift detection, final certification, and dependency refresh |
 
 ## MCP Servers
 
