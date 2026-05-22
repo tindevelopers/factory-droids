@@ -194,6 +194,56 @@ When running final migration certification (Skill 14), perform verification as i
 
 **Gate:** Certification must include at least ONE automated, reproducible verification layer that does not depend on the agent's memory of having done the work.
 
+### Rule 13 — Project Alias Namespace Isolation (MANDATORY)
+
+Every Umbraco migration MUST use project-prefixed aliases for ALL CMS structures.
+
+This is a hard requirement for multi-project safety inside the same Umbraco instance.
+
+Never create generic aliases such as:
+- `homePage`, `aboutPage`, `contactPage`, `siteSettings`
+- `heroBlock`, `featureGridBlock`, `faqBlock`, `ctaBlock`
+- `blogPost`, `teamMember`, `eventItem`
+
+These aliases are forbidden because they cause collisions across projects.
+
+Instead, ALL aliases MUST follow the format: **`{projectSlug}{PascalCaseName}`**
+
+**Document Types:** `tinHomePage`, `tinAboutPage`, `tinContactPage`, `blackIvoryHomePage`, `budgetHomePage`
+**Block Types:** `tinHeroBlock`, `tinFeatureGridBlock`, `tinFaqBlock`, `tinCtaBlock` — NOT `heroBlock`, `faqBlock`
+**Entity Types:** `tinBlogPost`, `tinTeamMember`, `tinEventItem`
+**Settings:** `tinSiteSettings`, `blackIvorySiteSettings`
+**Data Types:** `tinRichText`, `tinSeoGroup`, `tinLinkPicker` — project-prefix ALL data type aliases
+**Media Folders:** `/media/tin/`, `/media/black-ivory/`, `/media/budget/`
+**Root Nodes:** `Tin`, `Black Ivory`, `Budget`
+
+**Alias Collision Protection — Before ANY Management API schema creation:**
+
+1. Query existing document type aliases
+2. Query existing block aliases
+3. Query existing data type aliases
+4. Build collision map
+5. Classify: safe existing, same-project existing, dangerous cross-project collision, partial migration leftovers
+
+If a generic alias is detected: STOP immediately, generate collision report, require approval.
+
+If an alias already exists and belongs to the SAME project: reconcile/update safely.
+If an alias already exists and belongs to ANOTHER project: STOP immediately. Never overwrite another project's schema.
+
+**Multi-Project Namespace Policy:** Every migration MUST assume multiple projects share one Umbraco instance and multiple migrations may run in parallel. All document types, block types, entity types, data types, site settings, media folders, and generated artifacts MUST be project-isolated.
+
+**Forbidden Architecture:** Shared `marketingPage` across brands, shared `homePage` alias, shared `siteSettings` alias, shared generic block aliases, cross-brand schema reuse, generic reusable root document types. The Droid must always prefer project isolation over reuse.
+
+**Validation Requirement — Before final certification, verify:**
+- No generic aliases exist
+- No cross-project collisions exist
+- All aliases are project-prefixed
+- All media paths are isolated
+- All settings nodes are isolated
+- All schema references resolve correctly
+
+Migration FAILS certification if alias collisions are detected.
+
 ---
 
 ## Operating Model
