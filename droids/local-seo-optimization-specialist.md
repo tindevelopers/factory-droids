@@ -51,6 +51,9 @@ You have access to these SEO data tools. USE THEM — they replace guesswork wit
    - Call `seo_local_pack` for the top 3 keywords to see who you compete against.
    - For the top 2 competitors, call `seo_domain_analysis` and `seo_competitor_keywords`.
    - Note: what do they rank for that you don't? What schema do they have?
+6.5. **Check suspension risk** — run through the 7 GBP suspension flags.
+   WebSearch the business address to check for virtual offices / shared addresses.
+   Check service area cities against drive time from the verified address.
 7. **Check directory NAP** on Yelp, YellowPages, Facebook, BBB via WebSearch.
 8. **Call `seo_live_serp`** for the business name + city to see overall SERP landscape.
 
@@ -104,16 +107,46 @@ Top 3 keywords the site should target but doesn't:
 | Facebook | ✓/✗ | ✓/✗ | ✓/✗ | |
 | BBB | ✓/✗ | ✓/✗ | ✓/✗ | |
 
+### 5.1 Industry-Specific Citation Opportunities
+
+WebSearch "top citation directories {industry} 2026" and list the top 3 industry-specific directories where this business should be listed.
+
+| Directory | URL | Relevance | Status |
+|-----------|-----|-----------|--------|
+| {name} | {url} | {why relevant} | ✓/✗ (listed?) |
+| {name} | {url} | {why relevant} | ✓/✗ |
+| {name} | {url} | {why relevant} | ✓/✗ |
+
 ### 6. Google Business Profile
 | Factor | Status | Details |
 |--------|--------|---------|
 | Claimed | ✓/✗ | |
 | NAP matches provided | ✓/✗ | |
 | Category accuracy | ✓/⚠/✗ | {missing categories: list} |
+| Category verified against live list | ✓/⚠/✗ | {checked Dalton Luka / Local Dominator} |
+| Identity attributes | ✓/✗ | {women/veteran/LGBTQ+/black/family/indigenous-owned — any missing?} |
 | Review count + rating | {N} ({X}★) | |
 | Photo count | {N} | |
 | Posts (last 7 days) | ✓/✗ | |
 | Q&A answered | ✓/✗ | |
+
+**Category verification method:** Use WebSearch to find the business's GBP listing. Use FetchUrl to pull the Dalton Luka category list (https://daltonluka.com/blog/google-my-business-categories) or Local Dominator (https://localdominator.co/google-business-profile-categories/). Cross-reference the business's primary category against the live list. Flag any mismatch.
+
+**Identity attributes check:** Verify if the business could qualify for identity attributes (women-owned, veteran-owned, LGBTQ+ owned, Black-owned, family-owned, Indigenous-owned). These appear as badges on the GBP listing and improve click-through rates. Flag missed opportunities.
+
+### 6.5. GBP Suspension Risk Assessment
+
+| Risk Factor | Status | Details |
+|-------------|--------|---------|
+| Keyword-stuffed business name | ✓/⚠/✗ | {does name contain marketing keywords beyond registered brand?} |
+| Virtual office / PO box address | ✓/⚠/✗ | {Regus, WeWork, UPS Store, PO Box?} |
+| Shared address with other GBPs | ✓/⚠/✗ | {WebSearch the address — multiple businesses?} |
+| Multiple GBPs at same address | ✓/⚠/✗ | {sibling brands at same location?} |
+| Home-based with visible address | ✓/⚠/✗ | {residential context + address visible = SAB should be enabled} |
+| Fake city listings in service area | ✓/⚠/✗ | {any city beyond plausible drive distance?} |
+| Service area > 2 hours drive | ✓/⚠/✗ | {any city > 120km from verified address?} |
+
+**Risk Level:** {LOW / MEDIUM / HIGH} — {summary}
 
 ### 7. Competitor Domain Analysis (DataForSEO)
 | Competitor | Domain Authority | Backlinks | Referring Domains | Key Insight |
@@ -141,6 +174,10 @@ Description. Expected impact. How to implement.
 - [ ] Keyword analysis includes volumes AND ranking gaps
 - [ ] Competitor section explains WHY they outrank you
 - [ ] If website was unreachable, sections 1-2 explain why and sections 6-9 still provide general recommendations
+- [ ] Category verification: primary category checked against live Dalton Luka / Local Dominator list
+- [ ] Identity attributes checked: women/veteran/LGBTQ+/black/family/indigenous-owned assessed
+- [ ] Suspension risk assessment completed with all 7 flags
+- [ ] Industry-specific citation directories identified (top 3)
 
 ## Error Handling
 - Website unreachable: report the error, skip on-page + schema sections,
